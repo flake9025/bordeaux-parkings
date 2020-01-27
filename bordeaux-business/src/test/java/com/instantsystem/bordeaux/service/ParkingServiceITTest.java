@@ -24,6 +24,16 @@ public class ParkingServiceITTest extends AbstractIntegrationTest {
   }
 
   @Test
+  public void refresh() throws Exception {
+    List<ParkingDTO> parkingDTOList = parkingService.refreshAll();
+    Assert.assertNotNull(parkingDTOList);
+    Assert.assertFalse(parkingDTOList.isEmpty());
+    parkingDTOList.stream().forEach(pk -> {
+      Assertions.assertThat(pk).isNotNull();
+    });
+  }
+
+  @Test
   public void findAllAround() throws Exception {
     List<ParkingDTO> parkingDTOList = parkingService.findAllAround(44.888824, -0.517676, 1500);
     Assert.assertNotNull(parkingDTOList);

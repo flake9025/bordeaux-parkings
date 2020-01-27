@@ -34,6 +34,7 @@ public class ParkingMapperTest extends AbstractIntegrationTest {
 
   @Test
   public void toParkingStatus(){
+    Assert.assertEquals(ParkingStatus.UNKOWN, parkingMapper.toParkingStatus(null));
     Assert.assertEquals(ParkingStatus.FREE, parkingMapper.toParkingStatus("LIBRE"));
     Assert.assertEquals(ParkingStatus.FULL, parkingMapper.toParkingStatus("COMPLET"));
     Assert.assertEquals(ParkingStatus.OPEN, parkingMapper.toParkingStatus("OUVERT"));
