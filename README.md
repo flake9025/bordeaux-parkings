@@ -1,7 +1,9 @@
 # Parkings de la ville de Bordeaux
 
 ![Build Status](https://github.com/flake9025/bordeaux-parkings/workflows/Java%20CI/badge.svg)
-[![Code Coverage](https://codecov.io/github/flake9025/bordeaux-parkings/coverage.svg)](https://codecov.io/gh/flake9025/bordeaux-parkings)
+[![Coverage](https://codecov.io/gh/flake9025/bordeaux-parkings/branch/master/graph/badge.svg)](https://codecov.io/gh/flake9025/bordeaux-parkings)
+
+
 
 ### Modules
 Le projet "bordeaux" comprend les modules suivants:
