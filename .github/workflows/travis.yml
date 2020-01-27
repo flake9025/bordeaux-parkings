@@ -1,3 +1,4 @@
+on: push
 dist: xenial
 language: java
 jdk:
