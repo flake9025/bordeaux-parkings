@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>com.instantsystem.bordeaux</artifactId>
+    <groupId>com.instantsystem</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>com.instantsystem.bordeaux-business</artifactId>
+  <packaging>jar</packaging>
+
+  <properties>
+    <assertj-assertions-generator.version>2.1.0</assertj-assertions-generator.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-spatial</artifactId>
+    </dependency>
+    <!-- bordeaux lacub client -->
+    <dependency>
+      <groupId>com.instantsystem</groupId>
+      <artifactId>lacub-client</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- tests -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-assertions-generator-maven-plugin</artifactId>
+        <version>${assertj-assertions-generator.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-assertions</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <packages>
+            <param>com.instantsystem.bordeaux.dto</param>
+          </packages>
+          <excludes>
+            <exclude>com.instantsystem.bordeaux.dto.*Builder</exclude>
+          </excludes>
+          <entryPointClassPackage>com.instantsystem.bordeaux</entryPointClassPackage>
+          <generateAssertions>true</generateAssertions>
+          <generateBddAssertions>false</generateBddAssertions>
+          <generateSoftAssertions>false</generateSoftAssertions>
+          <generateJUnitSoftAssertions>false</generateJUnitSoftAssertions>
+          <!-- If true, the plugin does not produce any logs (default to false) -->
+          <quiet>true</quiet>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok-maven-plugin</artifactId>
+              <version>${lombok-maven-plugin.version}</version>
+            </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

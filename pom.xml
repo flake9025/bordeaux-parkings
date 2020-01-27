@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.4.RELEASE</version>
+  </parent>
+
+  <groupId>com.instantsystem</groupId>
+  <artifactId>com.instantsystem.bordeaux</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <modules>
+    <module>lacub-client</module>
+    <module>bordeaux-business</module>
+    <module>bordeaux-webapp</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>com.instantsystem.bordeaux</name>
+  <description>Recherche de parkings a proximité dans la ville de bordeaux</description>
+  <url>http://localhost:8080/bordeaux/swagger-ui.html</url>
+
+  <properties>
+    <java.version>11</java.version>
+    <maven-jaxb2-plugin.version>0.14.0</maven-jaxb2-plugin.version>
+    <spring-ws.version>2.4.0.RELEASE</spring-ws.version>
+    <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+    <lombok-maven-plugin.version>1.18.4.0</lombok-maven-plugin.version>
+    <lucene.version>8.4.1</lucene.version>
+    <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${org.mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-spatial</artifactId>
+        <version>${lucene.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>${springfox-swagger2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>${springfox-swagger2.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
