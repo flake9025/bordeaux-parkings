@@ -30,7 +30,7 @@
     <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
     <lombok-maven-plugin.version>1.18.4.0</lombok-maven-plugin.version>
     <lucene.version>8.4.1</lucene.version>
-    <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+    <springfox-swagger2.version>2.10.0</springfox-swagger2.version>
     <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
   </properties>
 
